@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}List{% endblock title %}
+
+{% block content %}
+<br>
+<div class="row">
+    {% for item in inventories %}
+    <div class="col-md-4">
+        <div class="card my-card">
+          <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p class="card-text">
+              <div class="float-left">
+                {{item.store.name|truncatechars:25}}
+              </div>
+              <br>
+              <div class="float-left">
+                {{item.is_empty|truncatechars:25}}
+              </div>
+              <br>
+              <div class="float-left">
+                {{item.last_updated|truncatechars:25}}
+              </div>
+            </p>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+
